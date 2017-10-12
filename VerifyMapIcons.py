@@ -30,7 +30,7 @@ class Verify_Idaho_Map_Icons(unittest.TestCase):
     def test_road_reports(self):
         print '\n' + "Verifying: Idaho Map Icons -> Road Reports"
         driver = self.driver
-        driver.get('http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/')
+        driver.get('http://idtg.carsprogram.org/events_v1/api/eventMapFeatures?eventClassifications=roadReports')
         tgWebDict = {}
 
         data = driver.find_element_by_tag_name('body').text
@@ -42,7 +42,7 @@ class Verify_Idaho_Map_Icons(unittest.TestCase):
             tgWebDict[IDNum] = imageName
 
         for roadReportsNum in tgWebDict:
-            testURL = 'http://hb.511.idaho.gov/#roadReports/eventAlbum/' + str(roadReportsNum) + '?timeFrame=TODAY&layers=roadReports%2CwinterDriving%2CweatherWarnings%2CotherStates'
+            testURL = 'http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/#roadReports/eventAlbum/' + str(roadReportsNum) + '?timeFrame=TODAY&layers=roadReports%2CwinterDriving%2CweatherWarnings%2CotherStates'
             driver.get(testURL)
 
             try:
