@@ -25,7 +25,7 @@ class Verify_Idaho_Layers(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
-        self.driver.get('http://hb.511.idaho.gov/#roadReports?timeFrame=TODAY&layers=roadReports%2CwinterDriving%2CweatherWarnings%2CotherStates')
+        self.driver.get('http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/')
 
 
     def test_presence_of_correct_layers(self):

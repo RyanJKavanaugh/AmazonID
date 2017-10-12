@@ -30,7 +30,7 @@ class Verify_Idaho_Map_Icons(unittest.TestCase):
     def test_road_reports(self):
         print '\n' + "Verifying: Idaho Map Icons -> Road Reports"
         driver = self.driver
-        driver.get('http://idtg.carsprogram.org/events_v1/api/eventMapFeatures?eventClassifications=roadReports')
+        driver.get('http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/')
         tgWebDict = {}
 
         data = driver.find_element_by_tag_name('body').text

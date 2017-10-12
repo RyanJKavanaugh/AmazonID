@@ -29,7 +29,7 @@ class Verify_Idaho_Links(unittest.TestCase):
         strList = []
         httpLinkList = []
 
-        url = 'http://hb.511.idaho.gov/'
+        url = 'http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/'
         html_page = urllib2.urlopen(url)
         soup = BeautifulSoup(html_page)
 

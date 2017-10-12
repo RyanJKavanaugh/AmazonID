@@ -29,7 +29,7 @@ class Verify_Login_And_Saving_Routes(unittest.TestCase):
         driver.maximize_window()
 
     #   HEAD TO CO WEBSITE
-        driver.get("http://hb.511.idaho.gov/#roadReports?timeFrame=TODAY&layers=roadReports%2CwinterDriving%2CweatherWarnings%2CotherStates")
+        driver.get("http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/")
 
     #   SELECT THE FAVORITE PAGE
         time.sleep(4)

@@ -24,7 +24,7 @@ class Verify_Login_And_Saving_Routes(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
         print '\n' + "Test for Idaho: Verifying login feature" + '\n'
-        self.driver.get("http://hb.511.idaho.gov/")
+        self.driver.get("http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/")
 
 
     def test_login_route_creation_and_deletion(self):
