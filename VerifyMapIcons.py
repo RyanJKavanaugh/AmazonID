@@ -68,7 +68,7 @@ class Verify_Idaho_Map_Icons(unittest.TestCase):
             tgWebList[IDNum] = cameraName
         # 3. Run through the dictionary to populate the web browser
         for cameraNum in tgWebList:
-            testURL = 'http://hb.511.idaho.gov/#cameras/albumView/' + str(cameraNum) + '?timeFrame=TODAY&layers=cameras'
+            testURL = 'http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/#cameras/albumView/' + str(cameraNum) + '?timeFrame=TODAY&layers=cameras'
             driver.get(testURL)
         # 4. Assert the web browser is correct by verifying the ablum view
             try:
@@ -93,7 +93,7 @@ class Verify_Idaho_Map_Icons(unittest.TestCase):
             tgWebList[IDNum] = locationName
 
         for signNum in tgWebList:
-            testURL = 'http://hb.511.idaho.gov/#signs/albumView/idahosigns*' + str(signNum) + '?timeFrame=TODAY&layers=signs'
+            testURL = 'http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/#signs/albumView/idahosigns*' + str(signNum) + '?timeFrame=TODAY&layers=signs'
             driver.get(testURL)
             try:
                 albumViewWait = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, 'galleryPopup')))
@@ -148,7 +148,7 @@ class Verify_Idaho_Map_Icons(unittest.TestCase):
             tgWebList[IDNum] = locationName
 
         for stationsNum in tgWebList:
-            testURL = 'http://hb.511.idaho.gov/#rwis/albumView/' + str(stationsNum) + '?timeFrame=TODAY&layers=rwis'
+            testURL = 'http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/#rwis/albumView/' + str(stationsNum) + '?timeFrame=TODAY&layers=rwis'
             driver.get(testURL)
 
             try:
