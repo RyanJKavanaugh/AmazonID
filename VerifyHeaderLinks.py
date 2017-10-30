@@ -15,6 +15,7 @@ import bs4
 import urllib2
 from BeautifulSoup import BeautifulSoup
 import requests
+import xlrd
 from pyvirtualdisplay import Display
 # -*- coding: utf-8 -*-
 

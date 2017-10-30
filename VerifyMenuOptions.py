@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common import action_chains, keys
 import time
 import unittest
+import xlrd
 from pyvirtualdisplay import Display
 # -*- coding: utf-8 -*-
 

@@ -13,6 +13,7 @@ from pprint import pprint
 from bs4 import  BeautifulSoup
 import json
 import jsonpickle
+import xlrd
 from pyvirtualdisplay import Display
 
 

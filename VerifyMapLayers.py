@@ -11,6 +11,7 @@ from selenium.webdriver.common import action_chains, keys
 from selenium.webdriver.common.action_chains import ActionChains
 import time
 import unittest
+import xlrd
 from pprint import pprint
 from pyvirtualdisplay import Display
 # -*- coding: utf-8 -*-
