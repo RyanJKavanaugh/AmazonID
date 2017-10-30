@@ -33,7 +33,7 @@ if adjustResolution == 1:
     AdjustResolution()
 
 
-class Verify_Login_And_Saving_Routes(unittest.TestCase):
+class Verify_Login(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
         print '\n' + "Test for Idaho: Verifying login feature" + '\n'

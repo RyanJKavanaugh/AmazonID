@@ -13,7 +13,6 @@ import xlrd
 from pyvirtualdisplay import Display
 # -*- coding: utf-8 -*-
 
-
 def AdjustResolution():
     display = Display(visible=0, size=(800, 800))
     display.start()
