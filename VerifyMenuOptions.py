@@ -15,15 +15,27 @@ from pyvirtualdisplay import Display
 
 
 
-display = Display(visible=0, size=(800, 800))
-display.start()
+def AdjustResolution():
+    display = Display(visible=0, size=(800, 800))
+    display.start()
+
+
+workbook = xlrd.open_workbook('DataID.xlsx')
+worksheet = workbook.sheet_by_index(0)
+url = worksheet.cell(1, 0).value
+username = worksheet.cell(1, 1).value
+password = worksheet.cell(1, 2).value
+adjustResolution = worksheet.cell(1, 3).value
+
+if adjustResolution == 1:
+    AdjustResolution()
 
 class Verify_Idaho_Menu_Options(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
        # self.driver.get('http://idwebtg.carsstage.org/#roadReports?timeFrame=TODAY&layers=roadReports%2CwinterDriving%2CweatherWarnings%2CotherStates')
-        self.driver.get('http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/')
+        self.driver.get(url)
         print ('\n') + "Test Verifying Idaho TG Web Lefthand Side Menu Options"
 
 
@@ -34,8 +46,8 @@ class Verify_Idaho_Menu_Options(unittest.TestCase):
         # Login To The System
         element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, 'sign-in-link')))
         driver.find_element_by_id('sign-in-link').click()
-        driver.find_element_by_id('userAccountEmail').send_keys('ryan.kavanaugh@crc-corp.com')
-        driver.find_element_by_id('userAccountPassword').send_keys('qa12')
+        driver.find_element_by_id('userAccountEmail').send_keys(username)
+        driver.find_element_by_id('userAccountPassword').send_keys(password)
         driver.find_element_by_id('userAccountPassword').submit()
 
         # Check that the menu items are all present

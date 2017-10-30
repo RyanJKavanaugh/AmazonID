@@ -15,17 +15,24 @@ from pprint import pprint
 from pyvirtualdisplay import Display
 # -*- coding: utf-8 -*-
 
+def AdjustResolution():
+    display = Display(visible=0, size=(800, 800))
+    display.start()
 
 
-display = Display(visible=0, size=(800, 800))
-display.start()
+workbook = xlrd.open_workbook('DataID.xlsx')
+worksheet = workbook.sheet_by_index(0)
+url = worksheet.cell(1, 0).value
+adjustResolution = worksheet.cell(1, 3).value
 
+if adjustResolution == 1:
+    AdjustResolution()
 
 class Verify_Idaho_Layers(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
-        self.driver.get('http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/')
+        self.driver.get(url)
 
 
     def test_presence_of_correct_layers(self):

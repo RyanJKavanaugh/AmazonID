@@ -9,12 +9,25 @@ from selenium.webdriver.common import action_chains, keys
 from selenium.webdriver.common.by import By
 import time
 import unittest
+import xlrd
 from pyvirtualdisplay import Display
 # -*- coding: utf-8 -*-
 
 
-display = Display(visible=0, size=(800, 800))
-display.start()
+def AdjustResolution():
+    display = Display(visible=0, size=(800, 800))
+    display.start()
+
+
+workbook = xlrd.open_workbook('DataID.xlsx')
+worksheet = workbook.sheet_by_index(0)
+url = worksheet.cell(1, 0).value
+username = worksheet.cell(1, 1).value
+password = worksheet.cell(1, 2).value
+adjustResolution = worksheet.cell(1, 3).value
+
+if adjustResolution == 1:
+    AdjustResolution()
 
 class Verify_Login_And_Saving_Routes(unittest.TestCase):
 
@@ -29,7 +42,7 @@ class Verify_Login_And_Saving_Routes(unittest.TestCase):
         driver.maximize_window()
 
     #   HEAD TO CO WEBSITE
-        driver.get("http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/")
+        driver.get(url)
 
     #   SELECT THE FAVORITE PAGE
         time.sleep(4)
@@ -38,8 +51,8 @@ class Verify_Login_And_Saving_Routes(unittest.TestCase):
 
     #   LOGIN INFO/LOGIN BUTTON
         time.sleep(2)
-        driver.find_element_by_id('userAccountEmail').send_keys('ryan.kavanaugh@crc-corp.com') # Login
-        driver.find_element_by_id('userAccountPassword').send_keys('qa12')
+        driver.find_element_by_id('userAccountEmail').send_keys(username) # Login
+        driver.find_element_by_id('userAccountPassword').send_keys(password)
         driver.find_element_by_id('userAccountPassword').submit()
 
     #   HEAD TO THE SEARCH PAGE

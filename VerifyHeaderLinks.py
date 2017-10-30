@@ -18,8 +18,18 @@ import requests
 from pyvirtualdisplay import Display
 # -*- coding: utf-8 -*-
 
-display = Display(visible=0, size=(800, 800))
-display.start()
+def AdjustResolution():
+    display = Display(visible=0, size=(800, 800))
+    display.start()
+
+
+workbook = xlrd.open_workbook('DataID.xlsx')
+worksheet = workbook.sheet_by_index(0)
+url = worksheet.cell(1, 0).value
+adjustResolution = worksheet.cell(1, 3).value
+
+if adjustResolution == 1:
+    AdjustResolution()
 
 
 class Verify_Idaho_Links(unittest.TestCase):
@@ -29,7 +39,6 @@ class Verify_Idaho_Links(unittest.TestCase):
         strList = []
         httpLinkList = []
 
-        url = 'http://crc-prod-id-wf-elb-382957924.us-west-2.elb.amazonaws.com/'
         html_page = urllib2.urlopen(url)
         soup = BeautifulSoup(html_page)
 
