@@ -101,7 +101,6 @@ class Verify_Idaho_Menu_Options(unittest.TestCase):
 
 
     def tearDown(self):
-         print '\n' + "Test Completed"
          self.driver.quit()
 
 

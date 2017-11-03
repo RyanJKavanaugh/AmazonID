@@ -57,7 +57,6 @@ class Verify_Login(unittest.TestCase):
 
 
     def tearDown(self):
-        print '\n' + "Test Completed"
         self.driver.quit()
 
 

@@ -8,6 +8,9 @@ from IDVerifyFDandTextSizes import Verify_Future_Dates_And_Text_Sizes
 from VerifyUserLogin import Verify_Login
 from VerifyMapLayers import Verify_Map_Layers
 import xlrd
+import sys
+
+# /Users/ryankavanaugh/Desktop/AmazonLA/
 
 workbook = xlrd.open_workbook('DataID.xlsx')
 worksheet = workbook.sheet_by_index(0)
@@ -36,7 +39,9 @@ test_suite = unittest.TestSuite([left_hand_menu, header_links, future_dates_and_
 
 if Jenkins == True:
     # run the suite
-    unittest.TextTestRunner(verbosity=2).run(test_suite)
+    test_runner = unittest.TextTestRunner(resultclass=unittest.TextTestResult)
+    result = test_runner.run(test_suite)
+    sys.exit(not result.wasSuccessful())
 else:
     # open the report file
     outfile = open(dir + "\SeleniumPythonTestSummary.html", "w")
