@@ -14,7 +14,7 @@ import sys
 
 workbook = xlrd.open_workbook('DataID.xlsx')
 worksheet = workbook.sheet_by_index(0)
-Jenkins = worksheet.cell(1, 3).value
+Jenkins = worksheet.cell(1, 4).value
 
 # get the directory path to output report file
 dir = os.getcwd()
